@@ -164,7 +164,9 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+        //  news
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+//        Sven\ArtisanView\ArtisanViewServiceProvider::class,
 
         /*
          * Package Service Providers...
