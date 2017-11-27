@@ -167,6 +167,7 @@ return [
         //  news
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
         Mews\Captcha\CaptchaServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 //        Sven\ArtisanView\ArtisanViewServiceProvider::class,
 
         /*
@@ -233,6 +234,7 @@ return [
 
         // news
         'Captcha' => Mews\Captcha\Facades\Captcha::class,
+        'Image' => Intervention\Image\Facades\Image::class
 
     ],
 
