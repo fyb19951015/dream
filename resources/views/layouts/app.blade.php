@@ -12,23 +12,25 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @yield('styles');
 </head>
 
 <body>
-    <div id="app" class="{{ route_class() }}-page">
-        @include('layouts._header')
+<div id="app" class="{{ route_class() }}-page">
+    @include('layouts._header')
 
-        <div class="container">
-            @include('layouts._message')
+    <div class="container">
+        @include('layouts._message')
 
-            @yield('content')
+        @yield('content')
 
-        </div>
-
-        @include('layouts._footer')
     </div>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    @include('layouts._footer')
+</div>
+
+<!-- Scripts -->
+<script src="{{ asset('js/app.js') }}"></script>
+@yield('scripts')
 </body>
 </html>
