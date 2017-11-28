@@ -38,4 +38,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Topic::class);
     }
+
+    public function isAuthorOf($model)
+    {
+        return $this->id == $model->user_id;
+    }
 }
