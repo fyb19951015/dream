@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\TopicRequest;
 use Illuminate\Support\Facades\Auth;
+use PhpParser\Node\Expr\New_;
 
 class TopicsController extends Controller
 {
@@ -40,7 +41,7 @@ class TopicsController extends Controller
         return view('topics.create_and_edit', compact('topic', 'categories'));
     }
 
-    public function store(TopicRequest $request, Topic $topic)
+    public function store(TopicRequest $request,Topic $topic)
     {
         $topic->fill($request->all());
         $topic->user_id = Auth::id();
