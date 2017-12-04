@@ -11,6 +11,8 @@ namespace App\Models;
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Model recent()
  * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Topic withOrder($order)
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Reply[] $replies
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Topic recentReplied()
  */
 class Topic extends Model
 {

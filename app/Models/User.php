@@ -12,6 +12,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  *
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @mixin \Eloquent
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Reply[] $replies
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Topic[] $topics
  */
 class User extends Authenticatable
 {
