@@ -3,12 +3,18 @@
 namespace App\Observers;
 
 use App\Models\Reply;
+use App\Notifications\TopicReplied;
 
 class ReplyObserver
 {
     public function created(Reply $reply)
     {
-        $reply->topic->increment('reply_count', 1);
+        $topic = $reply->topic;
+        $topic->increment('reply_count',1);
+
+        if (! $reply->user->isAuthorOf($topic)){
+            $topic->user->notify(new TopicReplied($reply));
+        }
     }
 
     public function creating(Reply $reply)
