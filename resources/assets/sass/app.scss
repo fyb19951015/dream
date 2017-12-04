@@ -1,7 +1,3 @@
-
-// Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
-
 // Variables
 @import "variables";
 
@@ -14,7 +10,7 @@ body {
   font-family: Hiragino Sans GB, "Hiragino Sans GB", Helvetica, "Microsoft YaHei", Arial,sans-serif;
 }
 
-/* 样式 */
+/* header */
 
 .navbar-static-top {
   border-color: #e7e7e7;
@@ -37,8 +33,8 @@ body {
     }
   }
 }
+/* Sticky footer styles */
 
-/* 固定页脚 */
 html {
   position: relative;
   min-height: 100% ;
@@ -80,6 +76,7 @@ body {
   }
 }
 
+/* User profile page */
 .users-show-page {
   .user-info {
     .thumbnail {
@@ -115,13 +112,13 @@ body {
     font-size: .9em;
     color: #b3b3b3;
   }
-  .reply-content {
+  .rpely-content {
     margin: 6px 0;
   }
 }
 
 /* Topic Index Page */
-.topics-index-page, .categories-show-page{
+.topics-index-page, .categories-show-page, .root-page {
   .topic-list {
     .nav > li > a {
       position: relative;
@@ -184,6 +181,8 @@ body {
   }
 }
 
+/* Notifications badge */
+
 .notifications-badge {
   margin-top: -1;
 
@@ -193,5 +192,26 @@ body {
 
   .badge-hint {
     background-color: #d15b47 !important;;
+  }
+}
+
+/* Sidebar */
+
+.sidebar {
+  .panel-body {
+    padding: 12px;
+  }
+
+  hr {
+    margin-top: 8px;
+    margin-bottom: 10px;
+  }
+
+  .active-users {
+    a.media {
+      color: #797878;
+      line-height: 26px;
+      font-size: 0.9em;
+    }
   }
 }
