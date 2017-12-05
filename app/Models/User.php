@@ -14,21 +14,21 @@ use Spatie\Permission\Traits\HasRoles;
  *
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @mixin \Eloquent
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Reply[] $replies
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Topic[] $topics
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Reply[]                                              $replies
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Topic[]                                              $topics
  */
 class User extends Authenticatable
 {
     use HasRoles;
 
-    use Notifiable{
+    use Notifiable {
         notify as protected laravelNogify;
     }
 
     public function notify($instance)
     {
-        if ($this->id == Auth::id()){
-            return ;
+        if ($this->id == Auth::id()) {
+            return;
         }
 
         $this->increment('notification_count');
@@ -41,6 +41,7 @@ class User extends Authenticatable
         $this->save();
         $this->unreadNotifications->markAsRead();
     }
+
     /**
      * The attributes that are mass assignable.
      *
@@ -72,5 +73,23 @@ class User extends Authenticatable
     public function isAuthorOf($model)
     {
         return $this->id == $model->user_id;
+    }
+
+    public function setPasswordAttribute($value)
+    {
+        if (strlen($value) != 60) {
+            $value = bcrypt($value);
+        }
+
+        $this->attributes['password'] = $value;
+    }
+
+    public function setAvatarAttribute($path)
+    {
+        if (!starts_with($path, 'http')) {
+            $path = config('app.url') . "/uploads/images/avatars/$path";
+        }
+
+        $this->attributes['avatar'] = $path;
     }
 }
