@@ -20,6 +20,8 @@ use Spatie\Permission\Traits\HasRoles;
 class User extends Authenticatable
 {
     use Traits\ActiveUserHelper;
+    use Traits\LastActivedAtHelper;
+
     use HasRoles;
 
     use Notifiable {

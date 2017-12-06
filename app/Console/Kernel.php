@@ -19,7 +19,7 @@ class Kernel extends ConsoleKernel
     /**
      * Define the application's command schedule.
      *
-     * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
+     * @param  \Illuminate\Console\Scheduling\Schedule $schedule
      * @return void
      */
     protected function schedule(Schedule $schedule)
@@ -28,6 +28,8 @@ class Kernel extends ConsoleKernel
         //          ->hourly();
         // 一小时执行一次『活跃用户』数据生成的命令
         $schedule->command('dream:calculate-active-user')->hourly();
+
+        $schedule->command('dream:sync-user-actived-at')->dailyAt('00:00');
     }
 
     /**
@@ -37,7 +39,7 @@ class Kernel extends ConsoleKernel
      */
     protected function commands()
     {
-        $this->load(__DIR__.'/Commands');
+        $this->load(__DIR__ . '/Commands');
 
         require base_path('routes/console.php');
     }
